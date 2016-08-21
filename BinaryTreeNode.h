@@ -7,7 +7,7 @@ using namespace std;
 class BinaryTreeNode
 {
 public:
-	BinaryTreeNode(int val) :data(val){}
+	BinaryTreeNode(int val) :data(val),left(nullptr),right(nullptr),parent(nullptr){}
 	int data;
 	BinaryTreeNode *left, *right;
 	BinaryTreeNode *parent;

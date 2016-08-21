@@ -6,7 +6,7 @@
 
 using namespace std;
 
-void main(){
+int main(){
 	srand(time(0));
 	BinaryTree tree;
 	std::vector<int> save;
@@ -25,5 +25,6 @@ void main(){
 
 
 	system("pause");
+	return 0;
 }
 
