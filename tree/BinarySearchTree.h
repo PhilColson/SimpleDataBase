@@ -3,6 +3,7 @@
 #include <functional>
 #include <iostream>
 #include "BinaryTreeNode.h"
+#include "../file/FileManager.h"
 using namespace std;
 
 class BinarySearchTree
@@ -26,7 +27,10 @@ public:
 	int get(const int val);
 
 	void remove(const int val);
+
+	void writeAllNodeToDisk();
 private:
+	FileManager<BinarySearchTreeNode> fileManager;
 	BinarySearchTreeNode* root;
 };
 

@@ -14,7 +14,8 @@ bool BinarySearchTreeTest(){
 	}
 	LOG << "finished insertion" << endl;
 
-	for (int i = 0; i < keys.size(); i++){
+	int keysize = keys.size();
+	for (int i = 0; i < keysize; i++){
 		int ret = tree.get(keys[i]);
 		if (ret != values[i]){
 			LOG << "expected: " << values[i] << " got " << ret << endl;
@@ -30,4 +31,31 @@ bool BinarySearchTreeTest(){
 	return true;
 }
 
+bool BinarySearchTree_writeAllNodeToDisk(){
+	bool ret = true;
+	BinarySearchTree tree;
+	std::vector<int> keys;
+	std::vector<int> values;
+	for (int i = 0; i < 100; i++){
+		int k = i;
+		int v = i;
+		keys.push_back(k);
+		values.push_back(v);
+		tree.put(k, v);
+	}
+	try{
+		tree.writeAllNodeToDisk();
+	}
+	catch (...){
+		ret = false;
+	}
+	
+
+	for (int v : keys)
+		tree.remove(v);
+
+	return ret;
+}
+
 ADDTEST(BinarySearchTreeTest)
+ADDTEST(BinarySearchTree_writeAllNodeToDisk)

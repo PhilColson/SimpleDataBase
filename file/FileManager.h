@@ -20,8 +20,13 @@ template<typename NodeType>
 class FileManager
 {
 public:
-	FileManager() = delete;
-	FileManager(string FileName):header(0,sizeof(NodeType)){
+	FileManager() :inited(false){}
+	FileManager(string FileName) :inited(true){
+		initWithFileName(FileName);
+	}
+
+	void initWithFileName(string FileName){
+		header = FileHeader(0, sizeof(NodeType));
 		//RAII
 		fileHandle.open(FileName, fstream::binary | fstream::out | fstream::in);
 		if (fileHandle.is_open()){
@@ -38,21 +43,21 @@ public:
 
 		/*
 		if (fileHandle.fail()){
-			char errmsg[100];
-			strerror_s(errmsg, 100, errno);
-			LOG << "open failed: " <<  errmsg << endl;
-			
+		char errmsg[100];
+		strerror_s(errmsg, 100, errno);
+		LOG << "open failed: " <<  errmsg << endl;
+
 		}
 		*/
 
-		fileHandle.read(reinterpret_cast<char*>(&header),sizeof(FileHeader));
+		fileHandle.read(reinterpret_cast<char*>(&header), sizeof(FileHeader));
 
 		if (fileHandle.eof()){
 			LOG << "file is empty" << endl;
 			wirteHeader();
 		}
 		else{
-			LOG << "read from file\n" 
+			LOG << "read from file\n"
 				<< "position: " << header.position << " NodeSize: " << header.NodeSize << endl;
 		}
 		if (sizeof(NodeType) != header.NodeSize){
@@ -61,28 +66,41 @@ public:
 		}
 		fileHandle.seekp(getPosByIndex(header.position));
 		fileHandle.flush();
+		inited = true;
 	}
 
-	int alloc(){
+	inline int alloc(){
+		internalcheck();
 		int ret = header.position;
 		header.position++;
 		return ret;
 	}
 
-	FileManager& operator << (NodeType* node){
+	inline FileManager& operator << (NodeType* node){
+		internalcheck();
 		if (node->ptrInDisk < 0){
 			//allocate space for node
 			node->ptrInDisk = alloc();
 		}
-		
 		_writeNode(node);
+		return *this;
+	}
 
+	inline bool isInited(){
+		return inited;
 	}
 
 	~FileManager(){
 		fileHandle.close();
 	}
 private:
+	inline void internalcheck(){
+		if (!inited){
+			LOG << "error: this FileManager is not inited" << endl;
+			throw exception("this FileManager is not inited");
+		}
+	}
+	bool inited;
 	void _writeNode(NodeType* node){
 		fileHandle.seekp(node->ptrInDisk);
 		fileHandle.write(reinterpret_cast<char*>(node), sizeof(NodeType));

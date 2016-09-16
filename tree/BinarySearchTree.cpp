@@ -169,3 +169,35 @@ void BinarySearchTree::remove(const int val){
 		delete p;
 	}
 }
+
+void BinarySearchTree::writeAllNodeToDisk(){
+	inorder(
+		[&](BinarySearchTreeNode* node){
+		if (node->ptrInDisk < 0)
+			node->ptrInDisk = fileManager.alloc();
+		if (nullptr != node->parent){
+			if (node->parentptrInDisk < 0){
+				node->parentptrInDisk = node->parent->ptrInDisk;
+			}
+		}
+		if (nullptr != node->right){
+			if (node->rightptrInDisk < 0){
+				if (node->right->ptrInDisk < 0){
+					node->right->ptrInDisk = fileManager.alloc();
+				}
+				node->rightptrInDisk = node->right->ptrInDisk;
+			}
+		}
+
+		if (nullptr != node->left){
+			if (node->leftptrInDisk < 0){
+				if (node->left->ptrInDisk < 0){
+					node->left->ptrInDisk = fileManager.alloc();
+				}
+				node->leftptrInDisk = node->left->ptrInDisk;
+			}
+		}
+
+		fileManager << node;
+	});
+}
