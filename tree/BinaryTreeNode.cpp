@@ -1,6 +1,6 @@
 #include "BinaryTreeNode.h"
 
-void BinaryTreeNode::preorder(const function<void(BinaryTreeNode*)>& func){
+void BinarySearchTreeNode::preorder(const function<void(BinarySearchTreeNode*)>& func){
 	func(this);
 	if (left != nullptr)
 		left->preorder(func);
@@ -8,7 +8,7 @@ void BinaryTreeNode::preorder(const function<void(BinaryTreeNode*)>& func){
 		right->preorder(func);
 }
 
-void BinaryTreeNode::inorder(const function<void(BinaryTreeNode*)>& func){
+void BinarySearchTreeNode::inorder(const function<void(BinarySearchTreeNode*)>& func){
 	if (left != nullptr)
 		left->inorder(func);
 	func(this);
@@ -16,7 +16,7 @@ void BinaryTreeNode::inorder(const function<void(BinaryTreeNode*)>& func){
 		right->inorder(func);
 }
 
-void BinaryTreeNode::postorder(const function<void(BinaryTreeNode*)>& func){
+void BinarySearchTreeNode::postorder(const function<void(BinarySearchTreeNode*)>& func){
 	if (left != nullptr)
 		left->postorder(func);
 	if (right != nullptr)

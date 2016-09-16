@@ -2,29 +2,21 @@
 #include <ctime>
 #include <cstdlib>
 #include <vector>
-#include "BinaryTree.h"
+#include "tree/BinarySearchTree.h"
+#include "log/log.h"
+#include "file/FileManager.h"
+#include "tests/test.h"
 
 using namespace std;
 
 int main(){
 	srand(time(0));
-	BinaryTree tree;
-	std::vector<int> save;
-	for (int i = 0; i < 10000000; i++){
-		int v = rand();
-		save.push_back(v);
-		tree.put(v);
-	}
+	//Logger::getInstance().redirectStream("log.txt");
+	
+	RUNALLTEST;
 
-	//tree.inorder();
+	SUMMARY;
 
-	for (int v : save)
-		tree.remove(v);
-
-	//tree.inorder();
-
-
-	//system("pause");
 	return 0;
 }
 

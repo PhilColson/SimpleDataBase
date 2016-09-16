@@ -1,15 +1,16 @@
-#include "BinaryTree.h"
+#include <exception>
+#include "BinarySearchTree.h"
 
-void BinaryTree::put(const int val){
+void BinarySearchTree::put(const int key,const int value){
 	if (nullptr == root){
-		root = new BinaryTreeNode(val);
+		root = new BinarySearchTreeNode(key,value);
 	}
 	else{
-		BinaryTreeNode* curr = root;
+		BinarySearchTreeNode* curr = root;
 		while (true){
-			if (val < curr->data){
+			if (key < curr->key){
 				if (nullptr == curr->left){
-					BinaryTreeNode* p = new BinaryTreeNode(val);
+					BinarySearchTreeNode* p = new BinarySearchTreeNode(key,value);
 					p->parent = curr;
 					curr->left = p;
 					break;
@@ -19,9 +20,9 @@ void BinaryTree::put(const int val){
 					continue;
 				}
 			}
-			else if(val > curr->data){
+			else if(key > curr->key){
 				if (nullptr == curr->right){
-					BinaryTreeNode* p = new BinaryTreeNode(val);
+					BinarySearchTreeNode* p = new BinarySearchTreeNode(key,value);
 					p->parent = curr;
 					curr->right = p;
 					break;
@@ -30,7 +31,7 @@ void BinaryTree::put(const int val){
 					curr = curr->right;
 					continue;
 				}
-			}else if (val == curr->data){
+			}else if (key == curr->key){
 				//duplicated key is not allowed now
 				break;
 			}
@@ -38,7 +39,7 @@ void BinaryTree::put(const int val){
 	}
 }
 
-void BinaryTree::preorder(const function<void(BinaryTreeNode*)>& func){
+void BinarySearchTree::preorder(const function<void(BinarySearchTreeNode*)>& func){
 	//TODO: use loop instead of recursion
 	if (nullptr == root)
 		return;
@@ -46,7 +47,7 @@ void BinaryTree::preorder(const function<void(BinaryTreeNode*)>& func){
 		root->preorder(func);
 }
 
-void BinaryTree::inorder(const function<void(BinaryTreeNode*)>& func){
+void BinarySearchTree::inorder(const function<void(BinarySearchTreeNode*)>& func){
 	//TODO: use loop instead of recursion
 	if (nullptr == root)
 		return;
@@ -54,7 +55,7 @@ void BinaryTree::inorder(const function<void(BinaryTreeNode*)>& func){
 		root->inorder(func);
 }
 
-void BinaryTree::postorder(const function<void(BinaryTreeNode*)>& func){
+void BinarySearchTree::postorder(const function<void(BinarySearchTreeNode*)>& func){
 	//TODO: use loop instead of recursion
 	if (nullptr == root)
 		return;
@@ -62,16 +63,16 @@ void BinaryTree::postorder(const function<void(BinaryTreeNode*)>& func){
 		root->postorder(func);
 }
 
-BinaryTreeNode* BinaryTree::get(const int val){
+BinarySearchTreeNode* BinarySearchTree::getRawPtr(const int key){
 	if (nullptr == root)
 		return nullptr;
-	BinaryTreeNode* curr = root;
+	BinarySearchTreeNode* curr = root;
 	while (curr != nullptr){
-		if (val < curr->data){
+		if (key < curr->key){
 			curr = curr->left;
 			continue;
 		}
-		else if (val > curr->data){
+		else if (key > curr->key){
 			curr = curr->right;
 			continue;
 		}
@@ -81,8 +82,17 @@ BinaryTreeNode* BinaryTree::get(const int val){
 	return nullptr;
 }
 
-void BinaryTree::remove(const int val){
-	BinaryTreeNode* p = get(val);
+int BinarySearchTree::get(const int key){
+	BinarySearchTreeNode* node = getRawPtr(key);
+	if (nullptr == node)
+	{
+		throw exception("node does not exist");
+	}
+	return node->value;
+}
+
+void BinarySearchTree::remove(const int val){
+	BinarySearchTreeNode* p = getRawPtr(val);
 	if (p == root){
 		delete p;
 		root = nullptr;
@@ -125,7 +135,7 @@ void BinaryTree::remove(const int val){
 	//both left and right child is not null
 	//make the right most child of left child
 	else{
-		BinaryTreeNode* curr = p->left;
+		BinarySearchTreeNode* curr = p->left;
 		while (true){
 			if (nullptr == curr->right){
 				break;

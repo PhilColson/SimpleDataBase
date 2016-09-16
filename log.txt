@@ -1,0 +1,92 @@
+main.cpp line: 24 Done
+main.cpp line: 25 Done
+c:\users\abceq\source\repos\codeblock1\sdb\sdb\file/FileManager.h line: 36 read from file
+position: 0NodeSize: 20
+c:\users\abceq\source\repos\codeblock1\sdb\sdb\file/FileManager.h line: 36 read from file
+position: 0NodeSize: 20
+main.cpp line: 25 Done
+c:\users\abceq\source\repos\codeblock1\sdb\sdb\file/FileManager.h line: 36 read from file
+position: 0NodeSize: 20
+c:\users\abceq\source\repos\codeblock1\sdb\sdb\file/FileManager.h line: 36 read from file
+position: 0NodeSize: 20
+main.cpp line: 25 Done
+c:\users\abceq\source\repos\codeblock1\sdb\sdb\file/FileManager.h line: 36 read from file
+position: 0NodeSize: 20
+c:\users\abceq\source\repos\codeblock1\sdb\sdb\file/FileManager.h line: 36 read from file
+position: 0NodeSize: 20
+main.cpp line: 25 Done
+c:\users\abceq\source\repos\codeblock1\sdb\sdb\file/FileManager.h line: 39 read from file
+position: 0NodeSize: 20
+c:\users\abceq\source\repos\codeblock1\sdb\sdb\file/FileManager.h line: 39 read from file
+position: 0NodeSize: 20
+main.cpp line: 25 Done
+c:\users\abceq\source\repos\codeblock1\sdb\sdb\file/FileManager.h line: 32 0
+c:\users\abceq\source\repos\codeblock1\sdb\sdb\file/FileManager.h line: 42 read from file
+position: 0NodeSize: 20
+c:\users\abceq\source\repos\codeblock1\sdb\sdb\file/FileManager.h line: 32 0
+c:\users\abceq\source\repos\codeblock1\sdb\sdb\file/FileManager.h line: 42 read from file
+position: 0NodeSize: 20
+main.cpp line: 25 Done
+c:\users\abceq\source\repos\codeblock1\sdb\sdb\file/FileManager.h line: 32 0
+c:\users\abceq\source\repos\codeblock1\sdb\sdb\file/FileManager.h line: 42 read from file
+position: 0NodeSize: 20
+c:\users\abceq\source\repos\codeblock1\sdb\sdb\file/FileManager.h line: 32 0
+c:\users\abceq\source\repos\codeblock1\sdb\sdb\file/FileManager.h line: 42 read from file
+position: 0NodeSize: 20
+main.cpp line: 25 Done
+c:\users\abceq\source\repos\codeblock1\sdb\sdb\file/FileManager.h line: 32 0
+c:\users\abceq\source\repos\codeblock1\sdb\sdb\file/FileManager.h line: 42 read from file
+position: 0NodeSize: 20
+c:\users\abceq\source\repos\codeblock1\sdb\sdb\file/FileManager.h line: 32 0
+c:\users\abceq\source\repos\codeblock1\sdb\sdb\file/FileManager.h line: 42 read from file
+position: 0NodeSize: 20
+main.cpp line: 25 Done
+c:\users\abceq\source\repos\codeblock1\sdb\sdb\file/FileManager.h line: 32 0
+c:\users\abceq\source\repos\codeblock1\sdb\sdb\file/FileManager.h line: 42 read from file
+position: 0NodeSize: 20
+c:\users\abceq\source\repos\codeblock1\sdb\sdb\file/FileManager.h line: 32 0
+c:\users\abceq\source\repos\codeblock1\sdb\sdb\file/FileManager.h line: 42 read from file
+position: 0NodeSize: 20
+main.cpp line: 25 Done
+c:\users\abceq\source\repos\codeblock1\sdb\sdb\file/FileManager.h line: 32 0
+c:\users\abceq\source\repos\codeblock1\sdb\sdb\file/FileManager.h line: 36 open failed
+c:\users\abceq\source\repos\codeblock1\sdb\sdb\file/FileManager.h line: 50 read from file
+position: 0 NodeSize: 20
+c:\users\abceq\source\repos\codeblock1\sdb\sdb\file/FileManager.h line: 32 0
+c:\users\abceq\source\repos\codeblock1\sdb\sdb\file/FileManager.h line: 36 open failed
+c:\users\abceq\source\repos\codeblock1\sdb\sdb\file/FileManager.h line: 50 read from file
+position: 0 NodeSize: 20
+main.cpp line: 25 Done
+c:\users\abceq\source\repos\codeblock1\sdb\sdb\file/FileManager.h line: 32 0
+main.cpp line: 25 Done
+c:\users\abceq\source\repos\codeblock1\sdb\sdb\file/FileManager.h line: 32 0
+c:\users\abceq\source\repos\codeblock1\sdb\sdb\file/FileManager.h line: 37 open failed: 0
+c:\users\abceq\source\repos\codeblock1\sdb\sdb\file/FileManager.h line: 52 read from file
+position: 0 NodeSize: 20
+c:\users\abceq\source\repos\codeblock1\sdb\sdb\file/FileManager.h line: 32 0
+c:\users\abceq\source\repos\codeblock1\sdb\sdb\file/FileManager.h line: 37 open failed: 0
+c:\users\abceq\source\repos\codeblock1\sdb\sdb\file/FileManager.h line: 52 read from file
+position: 0 NodeSize: 20
+main.cpp line: 25 Done
+c:\users\abceq\source\repos\codeblock1\sdb\sdb\file/FileManager.h line: 32 0
+c:\users\abceq\source\repos\codeblock1\sdb\sdb\file/FileManager.h line: 38 open failed: No such file or directory
+c:\users\abceq\source\repos\codeblock1\sdb\sdb\file/FileManager.h line: 53 read from file
+position: 0 NodeSize: 20
+c:\users\abceq\source\repos\codeblock1\sdb\sdb\file/FileManager.h line: 32 0
+c:\users\abceq\source\repos\codeblock1\sdb\sdb\file/FileManager.h line: 38 open failed: No such file or directory
+c:\users\abceq\source\repos\codeblock1\sdb\sdb\file/FileManager.h line: 53 read from file
+position: 0 NodeSize: 20
+main.cpp line: 25 Done
+c:\users\abceq\source\repos\codeblock1\sdb\sdb\file/FileManager.h line: 34 file does not exist create and reopen it
+c:\users\abceq\source\repos\codeblock1\sdb\sdb\file/FileManager.h line: 62 read from file
+position: 0 NodeSize: 20
+c:\users\abceq\source\repos\codeblock1\sdb\sdb\file/FileManager.h line: 31 file is opened
+c:\users\abceq\source\repos\codeblock1\sdb\sdb\file/FileManager.h line: 62 read from file
+position: 0 NodeSize: 20
+main.cpp line: 25 Done
+c:\users\abceq\source\repos\codeblock1\sdb\sdb\file/FileManager.h line: 29 file is opened
+c:\users\abceq\source\repos\codeblock1\sdb\sdb\file/FileManager.h line: 58 read from file
+position: 0 NodeSize: 20
+c:\users\abceq\source\repos\codeblock1\sdb\sdb\file/FileManager.h line: 29 file is opened
+c:\users\abceq\source\repos\codeblock1\sdb\sdb\file/FileManager.h line: 58 read from file
+position: 0 NodeSize: 20
