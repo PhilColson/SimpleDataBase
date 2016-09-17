@@ -29,8 +29,12 @@ public:
 	void remove(const int val);
 
 	void writeAllNodeToDisk();
+
+	void initFileManager(string FileName);
+
+	void readAllNodeFromDisk();
 private:
-	FileManager<BinarySearchTreeNode> fileManager;
+	FileManager<BinarySearchTreeNodeBase> fileManager;
 	BinarySearchTreeNode* root;
 };
 

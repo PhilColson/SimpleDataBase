@@ -5,20 +5,36 @@
 #include "NodeBase.h"
 using namespace std;
 
-class BinarySearchTreeNode:public NodeBase 
+class BinarySearchTreeNodeBase
 {
 public:
-	BinarySearchTreeNode(int key,int value):
-		key(key),value(value),left(nullptr),
-		right(nullptr),parent(nullptr),
-		leftptrInDisk(-1),rightptrInDisk(-1),
+	BinarySearchTreeNodeBase():ptrInDisk(-1),
+		leftptrInDisk(-1), rightptrInDisk(-1),
 		parentptrInDisk(-1){}
+	BinarySearchTreeNodeBase(int key, int value)
+		:key(key), value(value), ptrInDisk(-1),
+		leftptrInDisk(-1), rightptrInDisk(-1),
+		parentptrInDisk(-1){}
+	int ptrInDisk;
 	int key;
 	int value;
-	BinarySearchTreeNode *left, *right;
 	int leftptrInDisk, rightptrInDisk;
-	BinarySearchTreeNode *parent;
 	int parentptrInDisk;
+};
+
+class BinarySearchTreeNode :public BinarySearchTreeNodeBase
+{
+public:
+	BinarySearchTreeNode():left(nullptr),
+		right(nullptr), parent(nullptr){}
+	BinarySearchTreeNode(int key,int value):
+		BinarySearchTreeNodeBase(key,value),
+		left(nullptr),right(nullptr),parent(nullptr){}
+	
+	BinarySearchTreeNode *left, *right;
+	
+	BinarySearchTreeNode *parent;
+	
 
 	void preorder(const function<void(BinarySearchTreeNode*)>& func);
 

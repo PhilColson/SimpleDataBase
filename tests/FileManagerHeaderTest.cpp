@@ -4,7 +4,7 @@
 
 
 bool FileManagerHeaderTest(){
-	FileManager<BinarySearchTreeNode> filemanager("temp/FileManagerHeaderTest");
+	FileManager<BinarySearchTreeNodeBase> filemanager("temp/FileManagerHeaderTest");
 	return true;
 }
 

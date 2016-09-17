@@ -83,7 +83,16 @@ public:
 			node->ptrInDisk = alloc();
 		}
 		_writeNode(node);
+		fileHandle.flush();
 		return *this;
+	}
+
+	inline void readNode(NodeType* node, int pos){
+		internalcheck();
+		ios::pos_type readpos = getPosByIndex(pos);
+		//LOG << "reading at " << readpos << endl;
+		fileHandle.seekg(readpos);
+		fileHandle.read(reinterpret_cast<char*>(node), sizeof(NodeType));
 	}
 
 	inline bool isInited(){
@@ -100,20 +109,24 @@ private:
 			throw exception("this FileManager is not inited");
 		}
 	}
-	bool inited;
-	void _writeNode(NodeType* node){
-		fileHandle.seekp(node->ptrInDisk);
+
+	inline void _writeNode(NodeType* node){
+		ios::pos_type writepos = getPosByIndex(node->ptrInDisk);
+		//LOG << "writing at " << writepos << endl;
+		fileHandle.seekp(writepos);
 		fileHandle.write(reinterpret_cast<char*>(node), sizeof(NodeType));
 	}
 
-	void wirteHeader(){
+	inline void wirteHeader(){
 		header.NodeSize = sizeof(NodeType);
 		header.position = 0;
+		fileHandle.seekp(0);
 		fileHandle.write(reinterpret_cast<char*>(&header), sizeof(FileHeader));
 	}
-	ios::pos_type getPosByIndex(int index){
+	inline ios::pos_type getPosByIndex(int index){
 		return sizeof(FileHeader) + index * sizeof(NodeType);
 	}
+	bool inited;
 	fstream fileHandle;
 	FileHeader header;
 };

@@ -1,4 +1,5 @@
 #include <exception>
+#include <stack>
 #include "BinarySearchTree.h"
 
 void BinarySearchTree::put(const int key,const int value){
@@ -171,7 +172,7 @@ void BinarySearchTree::remove(const int val){
 }
 
 void BinarySearchTree::writeAllNodeToDisk(){
-	inorder(
+	preorder(
 		[&](BinarySearchTreeNode* node){
 		if (node->ptrInDisk < 0)
 			node->ptrInDisk = fileManager.alloc();
@@ -200,4 +201,57 @@ void BinarySearchTree::writeAllNodeToDisk(){
 
 		fileManager << node;
 	});
+}
+
+void BinarySearchTree::initFileManager(string FileName){
+	fileManager.initWithFileName(FileName);
+}
+
+void BinarySearchTree::readAllNodeFromDisk(){
+	root = new BinarySearchTreeNode();
+	fileManager.readNode(root,0);
+	stack<BinarySearchTreeNode*> fstack;
+	BinarySearchTreeNode* curr = root;
+	//read the right side first
+	while (true){
+		fstack.push(curr);
+		if (curr->rightptrInDisk < 0 && curr->leftptrInDisk < 0){
+			fstack.pop();
+			curr = fstack.top();
+			fstack.pop();
+			//this is a leaf node now return to prev level
+			continue;
+		}
+
+		if (curr->rightptrInDisk >= 0 && nullptr == curr->right)
+		{
+			BinarySearchTreeNode* tmp = new BinarySearchTreeNode();
+			fileManager.readNode(tmp,curr->rightptrInDisk);
+			tmp->parent = curr;
+			curr->right = tmp;
+			curr = curr->right;
+			continue;
+		}
+
+		if (curr->leftptrInDisk >= 0 && nullptr == curr->left)
+		{
+			BinarySearchTreeNode* tmp = new BinarySearchTreeNode();
+			fileManager.readNode(tmp, curr->leftptrInDisk);
+			tmp->parent = curr;
+			curr->left = tmp;
+			curr = curr->left;
+			continue;
+		}
+
+		//this is not a left node and both children are visited
+		if (curr == root)
+		{
+			break;
+		}
+
+		fstack.pop();
+		curr = fstack.top();
+		fstack.pop();
+		
+	}
 }
